@@ -1,0 +1,107 @@
+- name: Install microsoft auto-update
+  homebrew_cask:
+    name: microsoft-auto-update
+    state: present
+  tags:
+    - apps
+    - office
+- name: Install Microsoft Word
+  homebrew_cask:
+    name: microsoft-word
+    state: present
+  tags:
+    - apps
+    - office
+    - word
+- name: Install Microsoft Excel
+  homebrew_cask:
+    name: microsoft-excel
+    state: present
+  tags:
+    - apps
+    - office
+    - excel
+- name: Install Microsoft Powerpoint
+  homebrew_cask:
+    name: microsoft-powerpoint
+    state: present
+  tags:
+    - apps
+    - office
+    - powerpoint
+
+- name: Install Microsoft Teams
+  homebrew_cask:
+    name: microsoft-teams
+    state: present
+  tags:
+    - apps
+    - meetings
+    - teams
+- name: Install Slack
+  homebrew_cask:
+    name: slack
+    state: present
+  tags:
+    - apps
+    - meetings
+    - slack
+- name: Install Zoom
+  homebrew_cask:
+    name: zoom
+    state: present
+  tags:
+    - apps
+    - meetings
+    - zoom
+- name: Install Webex
+  homebrew_cask:
+    name: webex
+    state: present
+  tags:
+    - apps
+    - meetings
+    - webex
+- name: Install Skype
+  homebrew_cask:
+    name: skype
+    state: present
+  tags:
+    - apps
+    - meetings
+    - skype
+
+- name: Install Firefox
+  homebrew_cask:
+    name: firefox
+    state: present
+  tags:
+    - apps
+    - browsers
+    - firefox
+- name: Install Chrome
+  homebrew_cask:
+    name: google-chrome
+    state: present
+  tags:
+    - apps
+    - browsers
+    - chrome
+
+- name: Install Tripmode
+  homebrew_cask:
+    name: tripmode
+    state: present
+  tags:
+    - apps
+    - utilities
+    - tripmode
+- name: Install Magnet
+  mas:
+    id: 441258766
+    state: present
+  tags:
+    - apps
+    - utilities
+    - magnet
+

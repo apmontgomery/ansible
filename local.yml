@@ -1,0 +1,26 @@
+- hosts: localhost
+  vars:
+    source_key: "./.ssh/id_rsa"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    personal: "{{ lookup('env', 'HOME')/personal"
+  pre_tasks:
+  - name: Update Homebrew
+    homebrew:
+      update_homebrew: yes
+      upgrade_all: yes
+    tags:
+      - install
+      - core
+      - apps
+  - name: Install Mac Appstore CLI
+    homebrew:
+      name: mas
+      state: present
+    tags:
+      - apps
+  tasks:
+    - include: tasks/ssh.yml
+    - include: tasks/git-setup.yml
+    - include: tasks/node-setup.yml
+    - include: tasks/zsh-setup.yml
+    - include: tasks/apps-setup.yml 
