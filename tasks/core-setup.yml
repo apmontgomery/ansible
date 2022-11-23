@@ -67,14 +67,14 @@
     - utils
     - tldr
 
-- name: Install rar
-  homebrew:
-    name: rar
-    state: present
-  tags:
-    - install
-    - utils
-    - rar
+#- name: Install rar
+#   homebrew:
+#    name: rar
+#    state: present
+#  tags:
+#    - install
+#    - utils
+#    - rar
 
 - name: Install faas-cli
   homebrew:
