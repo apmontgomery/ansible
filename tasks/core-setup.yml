@@ -10,11 +10,11 @@
 - name: Cloning .dotfiles
   git:
     repo: 'git@github.com:apmontgomery/dotfiles.git'
-      dest: "{{ lookup('env', 'HOME') }}/dotfiles"
-      recursive: yes
-      update: yes
-      accept_hostkey: yes
-      version: master
+    dest: "{{ lookup('env', 'HOME') }}/dotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
   tags:
          - install
          - utils
