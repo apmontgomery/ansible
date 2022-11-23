@@ -45,4 +45,4 @@ git clone https://github.com/apmontgomery/ansible.git
 ## pull ansible
 # ansible-pull -U https://github.com/apmontgomery/ansible.git --ask-become-pass
 
-ansible-playbook --ask-vault-password local.yml
+ansible-playbook --ask-vault-password ansible/local.yml
