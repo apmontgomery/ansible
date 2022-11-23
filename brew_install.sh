@@ -21,6 +21,10 @@ if ! command -v brew &>/dev/null; then
     # eval "$(homebrew/bin/brew shellenv)"
     brew update --force --quiet
     chmod -R go-w "$(brew --prefix)/share/zsh"
+
+    echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/$USER/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$USER/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     pretty_print "You already have Homebrew installed..."
 fi
