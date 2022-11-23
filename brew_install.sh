@@ -39,6 +39,6 @@ else
 fi 
 
 ## pull ansible
-ansible-pull -U https://github.com/apmontgomery/ansible.git
+ansible-pull -U https://github.com/apmontgomery/ansible.git --ask-vault-pass
 
-ansible-playbook --ask-vault-password local.yml
+# ansible-playbook --ask-vault-password local.yml
