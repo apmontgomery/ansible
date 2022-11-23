@@ -1,0 +1,196 @@
+- name: Work folder exists
+  stat:
+    path: "{{ work }}"
+  register: workdir
+  tags:
+    - install
+    - dotfiles
+    - work-projects
+
+- name: "echo if directory already exists"
+  debug:
+    msg: "the work folder already exists"
+  when: workdir.stat.exists
+
+- name: "Create directory if not exists"
+  file:
+    path: "{{ work }}"
+    state: directory
+    mode: 0755
+  when: workdir.stat.exists == false
+
+# CoverHealth-Ansible
+- name: CoverHealth-Ansible Exists
+  stat:
+    path: "{{ work }}/CoverHealth-Ansible"
+  register: coverhealthansible
+  tags:
+    - install
+    - work-projects
+    - coverhealth-ansible
+
+- name: Work Project CoverHealth-Ansible
+  git:
+    repo: 'git@github.com:CoverGo/CoverHealth-Ansible.git'
+    bare: true
+    dest: "{{ work }}/CoverHealth-Ansible"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-ansible
+  when: coverhealthansible.stat.exists == False
+
+- name: Main Checkout
+  shell: "cd {{ work }}/CoverHealth-Ansible && git fetch && git worktree add main main"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-ansible
+  when: coverhealthansible.stat.exists == False
+
+# CoverHealth-Admin
+- name: CoverHealth-Admin Exists
+  stat:
+    path: "{{ work }}/CoverHealth-Admin"
+  register: coverhealthadmin
+  tags:
+    - install
+    - work-projects
+    - coverhealth-ansible
+
+- name: Work Project CoverHealth-Admin
+  git:
+    repo: 'git@github.com:CoverGo/CoverHealth-Admin.git'
+    bare: true
+    dest: "{{ work }}/CoverHealth-Admin"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-admin
+  when: coverhealthadmin.stat.exists == False
+
+- name: Master Checkout
+  shell: "cd {{ work }}/CoverHealth-Admin && git fetch && git worktree add master master"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-admin
+  when: coverhealthadmin.stat.exists == False
+
+# CoverHealth-Member
+- name: CoverHealth-Member Exists
+  stat:
+    path: "{{ work }}/CoverHealth-Portal-member"
+  register: coverhealthmember
+  tags:
+    - install
+    - work-projects
+    - coverhealth-member
+
+- name: Work Project CoverHealth-Portal-member
+  git:
+    repo: 'git@github.com:CoverGo/CoverHealth-Portal-member.git'
+    bare: true
+    dest: "{{ work }}/CoverHealth-Portal-member"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-member
+  when: coverhealthmember.stat.exists == False
+
+- name: Master Checkout
+  shell: "cd {{ work }}/CoverHealth-Portal-member && git fetch && git worktree add master master"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-member
+  when: coverhealthmember.stat.exists == False
+
+# CoverHealth-HR
+- name: CoverHealth-HR Exists
+  stat:
+    path: "{{ work }}/CoverHealth-Portal-hr"
+  register: coverhealthhr
+  tags:
+    - install
+    - work-projects
+    - coverhealth-hr
+
+- name: Work Project CoverHealth-Portal-hr
+  git:
+    repo: 'git@github.com:CoverGo/CoverHealth-Portal-hr.git'
+    bare: true
+    dest: "{{ work }}/CoverHealth-Portal-hr"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-hr
+  when: coverhealthhr.stat.exists == False
+
+- name: Master Checkout
+  shell: "cd {{ work }}/CoverHealth-Portal-hr && git fetch && git worktree add master master"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-hr
+  when: coverhealthhr.stat.exists == False
+
+
+# CoverHealth-Provider
+- name: CoverHealth-Provider Exists
+  stat:
+    path: "{{ work }}/CoverHealth-Portal-Provider"
+  register: coverhealthprovider
+  tags:
+    - install
+    - work-projects
+    - coverhealth-hr
+
+- name: Work Project CoverHealth-Portal-Provider
+  git:
+    repo: 'git@github.com:CoverGo/CoverHealth-Portal-Provider.git'
+    bare: true
+    dest: "{{ work }}/CoverHealth-Portal-Provider"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-provider
+  when: coverhealthprovider.stat.exists == False
+
+- name: Master Checkout
+  shell: "cd {{ work }}/CoverHealth-Portal-Provider && git fetch && git worktree add master master"
+  tags:
+    - install
+    - work-projects
+    - coverhealth-provider
+  when: coverhealthprovider.stat.exists == False
+
+# CoverHealth-Client Nomads
+- name: CoverHealth-client-nomads Exists
+  stat:
+    path: "{{ work }}/client-nomad"
+  register: clientnomad
+  tags:
+    - install
+    - work-projects
+    - client-nomad
+
+- name: Work Project client-nomad
+  git:
+    repo: 'git@github.com:CoverGo/client-nomad.git'
+    bare: true
+    dest: "{{ work }}/client-nomad"
+  tags:
+    - install
+    - work-projects
+    - client-nomad
+  when: clientnomad.stat.exists == False
+
+- name: Main Checkout
+  shell: "cd {{ work }}/client-nomad && git fetch && git worktree add main main"
+  tags:
+    - install
+    - work-projects
+    - client-nomad
+  when: clientnomad.stat.exists == False
+

@@ -1,0 +1,86 @@
+- name: Install Stow
+  homebrew:
+    name: stow
+    state: present
+  tags:
+    - install
+    - utils
+    - dotfiles
+    - stow
+- name: Cloning .dotfiles
+   git:
+       repo: 'git@github.com:apmontgomery/dotfiles.git'
+         dest: "{{ lookup('env', 'HOME') }}/dotfiles"
+         recursive: yes
+         update: yes
+         accept_hostkey: yes
+         version: master
+     tags:
+         - install
+         - utils
+         - dotfiles
+- name: Stow dotfiles
+  shell: cd $HOME/dotfiles && ./stowdotfiles
+  tags:
+    - install
+    - utils
+    - dotfiles
+
+# TODO: Explore and install Yabai
+#- name: Install Yabai
+#  homebrew:
+#    name: yabai
+
+- name: Install fzf
+  homebrew:
+    name: fzf
+    state: present
+  tags:
+    - install
+    - utils
+    - fzf
+
+- name: Install ripgrep
+  homebrew:
+    name: ripgrep
+    state: present
+  tags:
+    - install
+    - utils
+    - ripgrep
+
+- name: Install fd
+  homebrew:
+    name: fd
+    state: present
+  tags:
+    - install
+    - utils
+    - fd
+
+- name: Install tldr
+  homebrew:
+    name: tldr
+    state: present
+  tags:
+    - install
+    - utils
+    - tldr
+
+- name: Install rar
+  homebrew:
+    name: rar
+    state: present
+  tags:
+    - install
+    - utils
+    - rar
+
+- name: Install faas-cli
+  homebrew:
+    name: faas-cli
+    state: present
+  tags:
+    - install
+    - utils
+    - faas-cli

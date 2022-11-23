@@ -1,0 +1,54 @@
+# - name: VFA Exists
+#   stat:
+#     path: "{{ personal }}/votefromabroad"
+#   register: vfa
+#   tags:
+#     - install
+#     - dotfiles
+#     - neovim
+#     - personal-project
+# - name: Personal Project VFA
+#   git:
+#     repo: 'git@github.com:DemsAbroad/votefromabroad.git'
+#     bare: true
+#     dest: "{{ personal }}/votefromabroad"
+#   tags:
+#     - install
+#     - dotfiles
+#     - neovim
+#     - personal-project
+# - name: VFA Master Checkout
+#   shell: cd ~/personal/votefromabroad && git fetch && git worktree add master master
+#   tags:
+#     - install
+#     - dotfiles
+#     - neovim
+#     - personal-project
+#   when: vfa.stat.exists == False
+- name: PI Faas
+  stat:
+    path: "{{ personal }}/pifaas"
+  register: pifaas
+  tags:
+    - install
+    - dotfiles
+    - neovim
+    - personal-project
+- name: PI FAAS
+  git:
+    repo: 'git@github.com:apmontgomery/pifaas.git'
+    bare: true
+    dest: "{{ personal }}/pifaas"
+  tags:
+    - install
+    - dotfiles
+    - neovim
+    - personal-project
+- name: PIFAAS Checkout Master
+  shell: cd ~/personal/pifaas && git fetch && git worktree add master master
+  tags:
+    - install
+    - dotfiles
+    - neovim
+    - personal-project
+  when: vfa.stat.exists == False
