@@ -37,4 +37,4 @@ fi
 ## pull ansible
 sudo ansible-pull -U https://github.com/apmontgomery/ansible.git
 
-# ansible-playbook local.yml
+ansible-playbook local.yml
