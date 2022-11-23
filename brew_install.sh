@@ -38,7 +38,11 @@ else
     pretty_print "You already have Ansible installed..."
 fi 
 
-## pull ansible
-ansible-pull -U https://github.com/apmontgomery/ansible.git --ask-become-pass
+## Clone ansible repo
 
-# ansible-playbook --ask-vault-password local.yml
+git clone https://github.com/apmontgomery/ansible.git
+
+## pull ansible
+# ansible-pull -U https://github.com/apmontgomery/ansible.git --ask-become-pass
+
+ansible-playbook --ask-vault-password local.yml
