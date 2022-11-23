@@ -41,4 +41,4 @@ fi
 ## pull ansible
 ansible-pull -U https://github.com/apmontgomery/ansible.git
 
-ansible-playbook --ask-vault-pass local.yml
+ansible-playbook --ask-vault-password local.yml
