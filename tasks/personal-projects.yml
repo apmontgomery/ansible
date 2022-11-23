@@ -51,4 +51,4 @@
     - dotfiles
     - neovim
     - personal-project
-  when: vfa.stat.exists == False
+  when: pifaas.stat.exists == False
