@@ -45,7 +45,7 @@
     - neovim
     - personal-project
 - name: PIFAAS Checkout Master
-  shell: cd ~/personal/pifaas && git fetch && git worktree add master master
+  shell: cd ~/personal/pifaas && git fetch && git worktree add main main
   tags:
     - install
     - dotfiles
