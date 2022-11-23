@@ -139,7 +139,7 @@
 # CoverHealth-Provider
 - name: CoverHealth-Provider Exists
   stat:
-    path: "{{ work }}/CoverHealth-Portal-Provider"
+    path: "{{ work }}/CoverHealth-Provider"
   register: coverhealthprovider
   tags:
     - install
@@ -148,9 +148,9 @@
 
 - name: Work Project CoverHealth-Portal-Provider
   git:
-    repo: 'git@github.com:CoverGo/CoverHealth-Portal-Provider.git'
+    repo: 'git@github.com:CoverGo/CoverHealth-Provider.git'
     bare: true
-    dest: "{{ work }}/CoverHealth-Portal-Provider"
+    dest: "{{ work }}/CoverHealth-Provider"
   tags:
     - install
     - work-projects
