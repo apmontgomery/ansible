@@ -158,7 +158,7 @@
   when: coverhealthprovider.stat.exists == False
 
 - name: Master Checkout
-  shell: "cd {{ work }}/CoverHealth-Portal-Provider && git fetch && git worktree add master master"
+  shell: "cd {{ work }}/CoverHealth-Provider && git fetch && git worktree add master master"
   tags:
     - install
     - work-projects
